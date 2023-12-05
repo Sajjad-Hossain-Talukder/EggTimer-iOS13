@@ -121,6 +121,21 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="568.5" width="374" height="245.5"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="iWR-1e-hFw">
+                                                <rect key="frame" x="0.0" y="120.5" width="374" height="6"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="Wi8-0e-Ilu"/>
+                                                </constraints>
+                                                <color key="progressTintColor" red="0.94178990439999999" green="0.71657081889999996" blue="0.0080523428819999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </progressView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="iWR-1e-hFw" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="9tQ-wb-EM3"/>
+                                            <constraint firstAttribute="trailing" secondItem="iWR-1e-hFw" secondAttribute="trailing" id="MZL-zL-tPT"/>
+                                            <constraint firstItem="iWR-1e-hFw" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="Mwu-ak-JV8"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -135,7 +150,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="actionButton" destination="XLm-5r-pSP" id="GUU-Q4-vMw"/>
+                        <outlet property="progressTr" destination="iWR-1e-hFw" id="Ycq-S0-v87"/>
+                        <outlet property="titleAction" destination="XLm-5r-pSP" id="dwf-1N-6vk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
