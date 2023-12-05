@@ -7,22 +7,23 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class ViewController: UIViewController {
     
     let eggTimes = ["Soft" : 3.0 , "Medium" : 4.0 , "Hard" : 7.0 ]
-    
     var secondsRemaining : Float = 0
     var titleSecondsRemaining : Float = 0
     var total : Float = 0.0
     var passed : Float = 0.0
     var timer = Timer()
+    var player: AVAudioPlayer?
     
 
     @IBOutlet weak var titleAction: UILabel!
     
     @IBOutlet weak var progressTr: UIProgressView!
-    
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
         
@@ -51,11 +52,13 @@ class ViewController: UIViewController {
             
         } else {
             timer.invalidate()
+            playSound()
             titleAction.text = "Done!!!"
-            titleSecondsRemaining = 20.0
+            titleSecondsRemaining = 40.0
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector:#selector(titleTimer), userInfo: nil, repeats: true )
         }
     }
+    
     
     @objc func titleTimer (){
         
@@ -67,6 +70,21 @@ class ViewController: UIViewController {
             titleAction.text = "How do you like your eggs?"
         }
         
+    }
+    
+    
+    func playSound() {
+        guard let path = Bundle.main.path(forResource: "alarm_sound" , ofType:"mp3") else {
+            return }
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
     
