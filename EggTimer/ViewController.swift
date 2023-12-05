@@ -25,10 +25,13 @@ class ViewController: UIViewController {
     
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
+        
         progressTr.progress = 0.0
         let button = sender.currentTitle!
         secondsRemaining = Float(eggTimes[button]!)
         passed = 0
+        titleAction.text = button
+        
         total =  Float(eggTimes[button]!)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true )
         
