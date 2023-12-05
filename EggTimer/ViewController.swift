@@ -36,9 +36,11 @@ class ViewController: UIViewController {
     
     
     @objc func updateTimer (){
-        if self.secondsRemaining > 0.0 {
+        
+        if self.passed < self.total {
+            //if self.secondsRemaining > 0.0 {
             //print ("\(self.secondsRemaining) seconds")
-            self.secondsRemaining -= 1
+            //self.secondsRemaining -= 1
             self.passed += 1.0
             var percnt = ( self.passed / self.total )
             //print(percnt)
